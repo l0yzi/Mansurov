@@ -1,3 +1,4 @@
+
 class Note:
     def __init__(self, text, iscompleted):
         self.text = text

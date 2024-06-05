@@ -1,11 +1,17 @@
-import random
-a = random.randint(22, 100)
-print(a)
+#Программа для подсчёта полных тонн в данном количестве килограмм
 
-digits = [int(d) for d in str(a)]
-for item in digits:
-    print(type(item))
-print(digits)
+M = input("Введите массу в киллограммах: ")
+try:
+    M = int(M)
+    tonnes = M // 1000
+    if M < 0:
+        print("Проверьте правильность введёных данных.")
+    else:
+        print("Количество полных тонн:", tonnes)
+
+except:
+    print("Что-то пошло не так!")
+
 
 
 

@@ -14,7 +14,6 @@ try:
         print("Число не является чётным! False!")
     else:
         print("True")
-
 except:
     print("False")
 
