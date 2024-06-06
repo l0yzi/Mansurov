@@ -1,25 +1,65 @@
-# Создание базового класса "Транспортное средство" и его наследование для создания классов "Автомобиль" и "Мотоцикл".
-# В классе "Транспортное средство" будут общие свойства, такие как максимальная скорость и количество колес,
-# а классы-наследники будут иметь свои уникальные свойства и методы.
+# Создание базового класса "Фигура" и его наследование для создания классов "Квадрат", "Прямоугольник", "Круг".
+# Класс "Фигура" будет иметь общие методы, такие как вычисление площади и периметра,
+# а классы-наследники будут иметь спецефичные свойства и методы.
+import math
+class Figure:
+    def __init__(self):
+        self.area = 0
+        self.perimeter = 0
 
-class Vfigure:
-    def __init__(self, max_speed, num_wheels):
-        self.max_speed = max_speed
-        self.num_wheels = num_wheels
+    # Общие методы для всех фигур
+    def calculate_area(self):
+        pass
 
-class Car(Vehicle):
-    def __init__(self, max_speed, num_wheels, num_passengers):
-        super().__init__(max_speed, num_wheels)
-        self.num_passengers = num_passengers
+    def calculate_perimeter(self):
+        pass
 
-class Motorcycle(Vehicle):
-    def __init__(self, max_speed, num_wheels, engine_type):
-        super().__init__(max_speed, num_wheels)
-        self.engine_type = engine_type
+class Square(Figure):
+    def __init__(self, side):
+        super().__init__()
+        self.side = side
+    # Специфические методы для квадрата
+    def calculate_area(self):
+        self.area = self.side ** 2
+    def calculate_perimeter(self):
+        self.perimeter = 4 * self.side
 
-car = Car(200, 4, 5)
-motorcycle = Motorcycle(120, 2, "бензиновый")
+class Rectangle(Figure):
+    def __init__(self, length, width):
+        super().__init__()
+        self.length = length
+        self.width = width
+    # Специфические методы для прямоугольника
+    def calculate_area(self):
+        self.area = self.length * self.width
+    def calculate_perimeter(self):
+        self.perimeter = 2 * (self.length + self.width)
 
-print("Максимальная скорость автомобиля:", car.max_speed)
-print("Количество колес мотоцикла:", motorcycle.num_wheels)
-print("Тип двигателя мотоцикла:", motorcycle.engine_type)
+
+class Circle(Figure):
+    def __init__(self, radius):
+        super().__init__()
+        self.radius = radius
+    # Специфические методы для круга
+    def calculate_area(self):
+        self.area = math.pi * self.radius ** 2
+    def calculate_perimeter(self):
+        self.perimeter = 2 * math.pi * self.radius
+
+square = Square(5)
+square.calculate_area()
+square.calculate_perimeter()
+print("Площадь квадрата:", square.area)
+print("Периметр квадрата:", square.perimeter)
+
+rectangle = Rectangle(10, 5)
+rectangle.calculate_area()
+rectangle.calculate_perimeter()
+print("Площадь прямоугольника:", rectangle.area)
+print("Периметр прямоугольника:", rectangle.perimeter)
+
+circle = Circle(3)
+circle.calculate_area()
+circle.calculate_perimeter()
+print("Площадь круга:", circle.area)
+print("Периметр круга:", circle.perimeter)
